@@ -23,9 +23,11 @@ filesep=os.sep
 path='/Volumes/imaging.data/Paolo/MCF10A_TimeLapse/'
 #%%
 def find_csv(path):
+    exclude=['cp.out']
     findfile='experimentDescription.csv'
     filelist=[]
     for root, dirs, files in os.walk(path):
+        dirs[:] = [d for d in dirs if d not in exclude]
         if findfile in files:
             filepath=os.path.join(root, findfile)
             filelist.append(filepath)
