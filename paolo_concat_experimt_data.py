@@ -20,7 +20,6 @@ def parseArguments():
   return(args)
 #%%  
 filesep=os.sep
-path='/Volumes/imaging.data/Paolo/MCF10A_TimeLapse/'
 #%%
 def find_csv(path):
     exclude='cp.out'
@@ -47,7 +46,7 @@ def concat_csv(path):
                 break
         csvlist.append(temp)
     fullcsv=pd.concat(csvlist)
-    fullcsv.to_csv(os.path.join(path, 'concat_experiment_description.csv'))
+    fullcsv.to_csv(os.path.join(path, 'concat_experiment_description.csv'), sep=';')
     return fullcsv
 
 
