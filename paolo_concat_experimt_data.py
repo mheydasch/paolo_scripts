@@ -14,6 +14,7 @@ def parseArguments():
   # Define the parser and read arguments
   parser = argparse.ArgumentParser(description='collect segmentation files into one directory')
   parser.add_argument('-d', '--dir', type=str, help='The directory where the knockdown folders are', required=True)
+
   args = parser.parse_args()
   return(args)
 #%%  
@@ -43,6 +44,7 @@ def concat_csv(path):
                 break
         csvlist.append(temp)
     fullcsv=pd.concat(csvlist)
+    pd.to_csv(os.path.join(path, 'concat_experiment_description.csv'))
     return fullcsv
 
 
@@ -50,6 +52,6 @@ def concat_csv(path):
 if __name__ == '__main__':
     args=parseArguments()
     path=args.dir
-    concat_csv(path)
+
     
     print(args)            
