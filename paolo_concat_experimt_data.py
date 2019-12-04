@@ -10,6 +10,7 @@ import pandas as pd
 import sys
 import os
 import re
+import argparse
 def parseArguments():
   # Define the parser and read arguments
   parser = argparse.ArgumentParser(description='collect segmentation files into one directory')
