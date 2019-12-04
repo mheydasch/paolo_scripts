@@ -53,6 +53,5 @@ def concat_csv(path):
 if __name__ == '__main__':
     args=parseArguments()
     path=args.dir
-
-    
+    concat_csv(path)
     print(args)            
